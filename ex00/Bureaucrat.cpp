@@ -6,7 +6,7 @@
 /*   By: asando <asando@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/04 16:47:48 by asando            #+#    #+#             */
-/*   Updated: 2026/09/05 15:11:15 by asando           ###   ########.fr       */
+/*   Updated: 2026/09/06 15:19:15 by asando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <string>
 #include <iostream>
 
-Bureaucrat::Bureaucrat(std::string& name, int grade)
+Bureaucrat::Bureaucrat(const std::string& name, int grade)
 	: _name(name), _grade(grade) {
 		if (_grade < 1)
 			throw GradeTooHighExcep();

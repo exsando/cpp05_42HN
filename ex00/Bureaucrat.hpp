@@ -6,7 +6,7 @@
 /*   By: asando <asando@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/04 16:47:15 by asando            #+#    #+#             */
-/*   Updated: 2026/09/05 15:11:18 by asando           ###   ########.fr       */
+/*   Updated: 2026/09/06 15:26:50 by asando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class	Bureaucrat {
 		int					_grade;
 
 	public:
-		Bureaucrat(std::string& name, int grade);
+		Bureaucrat(const std::string& name, int grade);
 		Bureaucrat(const Bureaucrat& other);
 		Bureaucrat&	operator=(const Bureaucrat& rhs);
 		~Bureaucrat();
@@ -31,12 +31,12 @@ class	Bureaucrat {
 		void				setIncGrade(void);
 		void				setDecGrade(void);
 
-		class GradeTooHighExcep : std::exception {
+		class GradeTooHighExcep : public std::exception {
 			public:
 				const char* what() const throw();
 		};
 
-		class GradeTooLowExcep : std::exception {
+		class GradeTooLowExcep : public std::exception {
 			public:
 				const char* what() const throw();
 		};
