@@ -6,17 +6,17 @@
 /*   By: asando <asando@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 20:08:08 by asando            #+#    #+#             */
-/*   Updated: 2026/09/13 11:13:22 by asando           ###   ########.fr       */
+/*   Updated: 2026/09/13 11:51:43 by asando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 # include <string>
 # include "Bureaucrat.hpp"
 
-class	Form {
+class	AForm {
 	private:
 		const std::string	_name;
 		bool				_signed;
@@ -24,11 +24,11 @@ class	Form {
 		const int			_gradeToExecute;
 
 	public:
-		Form(const std::string& name, bool sign_stat,
+		AForm(const std::string& name, bool sign_stat,
 				const int gradeToSign, const int gradeToExecute);
-		Form(const Form& other);
-		Form& operator=(const Form& rhs);
-		~Form();
+		AForm(const AForm& other);
+		AForm& operator=(const AForm& rhs);
+		~AForm();
 
 		const std::string&	getName() const;
 		bool				getIfSigned() const;
@@ -37,6 +37,7 @@ class	Form {
 
 		void	beSigned(Bureaucrat& signer);
 		void	signForm(Bureaucrat& signer);
+		virtual void	execute(Bureaucrat const& executor) const = 0;
 
 		class GradeTooHighExecp : public std::exception {
 			public:
@@ -49,5 +50,5 @@ class	Form {
 		};
 };
 
-std::ostream& operator<<(std::ostream& os, const Form& f);
+std::ostream& operator<<(std::ostream& os, const AForm& f);
 #endif
