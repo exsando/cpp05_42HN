@@ -6,7 +6,7 @@
 /*   By: asando <asando@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 20:08:08 by asando            #+#    #+#             */
-/*   Updated: 2026/09/07 20:44:26 by asando           ###   ########.fr       */
+/*   Updated: 2026/09/13 11:13:22 by asando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ class	Form {
 
 		const std::string&	getName() const;
 		bool				getIfSigned() const;
-		const int			getGradeToSign() const;
-		const int			getGradeToExecute() const;
+		int			getGradeToSign() const;
+		int			getGradeToExecute() const;
 
 		void	beSigned(Bureaucrat& signer);
 		void	signForm(Bureaucrat& signer);

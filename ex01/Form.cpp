@@ -6,7 +6,7 @@
 /*   By: asando <asando@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 20:10:58 by asando            #+#    #+#             */
-/*   Updated: 2026/09/07 21:09:37 by asando           ###   ########.fr       */
+/*   Updated: 2026/09/13 11:13:35 by asando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,11 @@ bool	Form::getIfSigned() const {
 	return (_signed);
 }
 
-const int	Form::getGradeToSign() const {
+int	Form::getGradeToSign() const {
 	return (_gradeToSign);
 }
 
-const int	Form::getGradeToExecute() const {
+int	Form::getGradeToExecute() const {
 	return (_gradeToExecute);
 }
 
