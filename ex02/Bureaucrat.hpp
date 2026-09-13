@@ -6,7 +6,7 @@
 /*   By: asando <asando@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/04 16:47:15 by asando            #+#    #+#             */
-/*   Updated: 2026/09/06 15:26:50 by asando           ###   ########.fr       */
+/*   Updated: 2026/09/13 19:44:53 by asando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define BUREAUCRAT_HPP
 
 # include <string>
+
+class AForm;
 
 class	Bureaucrat {
 	private:
@@ -30,6 +32,8 @@ class	Bureaucrat {
 		int					getGrade(void) const;
 		void				setIncGrade(void);
 		void				setDecGrade(void);
+
+		void				signForm(AForm& form);
 
 		class GradeTooHighExcep : public std::exception {
 			public:

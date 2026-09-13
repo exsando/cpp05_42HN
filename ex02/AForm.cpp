@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asando <asando@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 20:10:58 by asando            #+#    #+#             */
-/*   Updated: 2026/09/13 11:53:04 by asando           ###   ########.fr       */
+/*   Updated: 2026/09/13 19:51:06 by asando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
-#include <iostream>
 
-AForm::AForm(const std::string& name, bool sign_stat,
-		const int gradeToSign, const int gradeToExecute)
-	: _name(name), _signed(sign_stat), _gradeToSign(gradeToSign),
+AForm::AForm(const std::string& name, const int gradeToSign,
+		const int gradeToExecute)
+	: _name(name), _signed(false), _gradeToSign(gradeToSign),
 	_gradeToExecute(gradeToExecute) {
 		if (gradeToSign < 1)
 			throw GradeTooHighExecp();
@@ -63,15 +62,12 @@ void	AForm::beSigned(Bureaucrat& signer) {
 	return ;
 }
 
-void	AForm::signForm(Bureaucrat& signer) {
-	try {
-		beSigned(signer);
-		std::cout << signer.getName() << " signed " << this->getName()
-			<< std::endl;
-	} catch (std::exception& e) {
-		std::cout << signer.getName() << " couldn't sign " << this->getName()
-			<< " because" << e.what() << std::endl;
-	}
+void	AForm::checkExecution(const Bureaucrat& executor) const {
+	if (_signed == false)
+		throw FormNotSignedExecp();
+	if (executor.getGrade() > _gradeToExecute)
+		throw GradeTooLowExecp();
+	return ;
 }
 
 const char*	AForm::GradeTooHighExecp::what() const throw() {
@@ -80,4 +76,8 @@ const char*	AForm::GradeTooHighExecp::what() const throw() {
 
 const char* AForm::GradeTooLowExecp::what() const throw() {
 	return ("Grade too Low!");
+}
+
+const char* AForm::FormNotSignedExecp::what() const throw() {
+	return ("Form is not signed");
 }
