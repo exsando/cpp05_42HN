@@ -6,7 +6,7 @@
 /*   By: asando <asando@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 20:08:08 by asando            #+#    #+#             */
-/*   Updated: 2026/09/13 11:13:22 by asando           ###   ########.fr       */
+/*   Updated: 2026/09/13 13:15:41 by asando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,19 @@ class	Form {
 		const int			_gradeToExecute;
 
 	public:
-		Form(const std::string& name, bool sign_stat,
-				const int gradeToSign, const int gradeToExecute);
+		Form(const std::string& name, const int gradeToSign,
+				const int gradeToExecute);
 		Form(const Form& other);
 		Form& operator=(const Form& rhs);
 		~Form();
 
 		const std::string&	getName() const;
 		bool				getIfSigned() const;
-		int			getGradeToSign() const;
-		int			getGradeToExecute() const;
+		int					getGradeToSign() const;
+		int					getGradeToExecute() const;
 
-		void	beSigned(Bureaucrat& signer);
-		void	signForm(Bureaucrat& signer);
+		void				beSigned(Bureaucrat& signer);
+		void				signForm(Bureaucrat& signer);
 
 		class GradeTooHighExecp : public std::exception {
 			public:

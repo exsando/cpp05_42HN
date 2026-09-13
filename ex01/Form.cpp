@@ -6,16 +6,16 @@
 /*   By: asando <asando@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 20:10:58 by asando            #+#    #+#             */
-/*   Updated: 2026/09/13 11:13:35 by asando           ###   ########.fr       */
+/*   Updated: 2026/09/13 13:16:20 by asando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 #include <iostream>
 
-Form::Form(const std::string& name, bool sign_stat,
-		const int gradeToSign, const int gradeToExecute)
-	: _name(name), _signed(sign_stat), _gradeToSign(gradeToSign),
+Form::Form(const std::string& name, const int gradeToSign,
+		const int gradeToExecute)
+	: _name(name), _signed(false), _gradeToSign(gradeToSign),
 	_gradeToExecute(gradeToExecute) {
 		if (gradeToSign < 1)
 			throw GradeTooHighExecp();

@@ -6,7 +6,7 @@
 /*   By: asando <asando@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 21:02:58 by asando            #+#    #+#             */
-/*   Updated: 2026/09/13 11:14:08 by asando           ###   ########.fr       */
+/*   Updated: 2026/09/13 13:17:09 by asando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	main(void) {
 	try {
-		Form a("DocumentA", false, 5, 150);
+		Form a("DocumentA", 5, 150);
 		Bureaucrat bu("Bu", 6);
 		a.signForm(bu);
 	} catch (std::exception& e) {
