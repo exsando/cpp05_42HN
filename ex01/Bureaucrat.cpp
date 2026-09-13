@@ -6,11 +6,12 @@
 /*   By: asando <asando@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/04 16:47:48 by asando            #+#    #+#             */
-/*   Updated: 2026/09/06 15:19:15 by asando           ###   ########.fr       */
+/*   Updated: 2026/09/13 19:35:40 by asando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include <string>
 #include <iostream>
 
@@ -52,6 +53,17 @@ void	Bureaucrat::setDecGrade(void) {
 	if (_grade + 1 > 150)
 		throw GradeTooLowExcep();
 	_grade++;
+}
+
+void	Bureaucrat::signForm(Form& form) {
+	try {
+		form.beSigned(*this);
+		std::cout << this->getName() << " signed " << form.getName()
+			<< std::endl;
+	} catch (std::exception& e) {
+		std::cout << this->getName() << " couldn't sign " << form.getName()
+			<< " because" << e.what() << std::endl;
+	}
 }
 
 const char*	Bureaucrat::GradeTooHighExcep::what() const throw() {

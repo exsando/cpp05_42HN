@@ -6,12 +6,11 @@
 /*   By: asando <asando@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 20:10:58 by asando            #+#    #+#             */
-/*   Updated: 2026/09/13 13:16:20 by asando           ###   ########.fr       */
+/*   Updated: 2026/09/13 19:36:06 by asando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
-#include <iostream>
 
 Form::Form(const std::string& name, const int gradeToSign,
 		const int gradeToExecute)
@@ -61,17 +60,6 @@ void	Form::beSigned(Bureaucrat& signer) {
 		throw GradeTooLowExecp();
 	}
 	return ;
-}
-
-void	Form::signForm(Bureaucrat& signer) {
-	try {
-		beSigned(signer);
-		std::cout << signer.getName() << " signed " << this->getName()
-			<< std::endl;
-	} catch (std::exception& e) {
-		std::cout << signer.getName() << " couldn't sign " << this->getName()
-			<< " because" << e.what() << std::endl;
-	}
 }
 
 const char*	Form::GradeTooHighExecp::what() const throw() {
