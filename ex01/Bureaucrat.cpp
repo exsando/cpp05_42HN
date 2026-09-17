@@ -6,7 +6,7 @@
 /*   By: asando <asando@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/04 16:47:48 by asando            #+#    #+#             */
-/*   Updated: 2026/09/13 19:35:40 by asando           ###   ########.fr       */
+/*   Updated: 2026/09/13 19:38:59 by asando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,10 @@ void	Bureaucrat::setDecGrade(void) {
 void	Bureaucrat::signForm(Form& form) {
 	try {
 		form.beSigned(*this);
-		std::cout << this->getName() << " signed " << form.getName()
+		std::cout << _name << " signed " << form.getName()
 			<< std::endl;
 	} catch (std::exception& e) {
-		std::cout << this->getName() << " couldn't sign " << form.getName()
+		std::cout << _name << " couldn't sign " << form.getName()
 			<< " because" << e.what() << std::endl;
 	}
 }

@@ -6,23 +6,19 @@
 /*   By: asando <asando@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 20:10:58 by asando            #+#    #+#             */
-/*   Updated: 2026/09/13 19:36:06 by asando           ###   ########.fr       */
+/*   Updated: 2026/09/17 19:49:34 by asando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
+#include <iostream>
 
-Form::Form(const std::string& name, const int gradeToSign,
-		const int gradeToExecute)
+Form::Form(const std::string& name, int gradeToSign, int gradeToExecute)
 	: _name(name), _signed(false), _gradeToSign(gradeToSign),
 	_gradeToExecute(gradeToExecute) {
-		if (gradeToSign < 1)
+		if (gradeToSign < 1 || gradeToExecute < 1)
 			throw GradeTooHighExecp();
-		if (gradeToSign > 150)
-			throw GradeTooLowExecp();
-		if (gradeToExecute < 1)
-			throw GradeTooHighExecp();
-		if (gradeToExecute > 150)
+		if (gradeToSign > 150 || gradeToExecute > 150)
 			throw GradeTooLowExecp();
 		return ;
 }
@@ -68,4 +64,12 @@ const char*	Form::GradeTooHighExecp::what() const throw() {
 
 const char* Form::GradeTooLowExecp::what() const throw() {
 	return ("Grade too Low!");
+}
+
+std::ostream& operator<<(std::ostream& os, const Form& f) {
+	os << "Form Name : " << f.getName() << std::endl
+		<< "Status : " << f.getIfSigned() << std::endl
+		<< "Grade to Sign : " << f.getGradeToSign() << std::endl
+		<< "Grade to Execute : " << f.getGradeToExecute() << std::endl;
+	return (os);
 }

@@ -6,7 +6,7 @@
 /*   By: asando <asando@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 20:08:08 by asando            #+#    #+#             */
-/*   Updated: 2026/09/13 19:50:34 by asando           ###   ########.fr       */
+/*   Updated: 2026/09/17 18:13:01 by asando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ class	AForm {
 		const int			_gradeToExecute;
 
 	public:
-		AForm(const std::string& name, const int gradeToSign,
-				const int gradeToExecute);
+		AForm(const std::string& name, int gradeToSign, int gradeToExecute);
 		AForm(const AForm& other);
 		AForm& operator=(const AForm& rhs);
 		~AForm();
