@@ -6,7 +6,7 @@
 /*   By: asando <asando@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/04 16:47:48 by asando            #+#    #+#             */
-/*   Updated: 2026/09/13 19:45:32 by asando           ###   ########.fr       */
+/*   Updated: 2026/09/17 20:15:08 by asando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ void	Bureaucrat::signForm(AForm& form) {
 		form.beSigned(*this);
 		std::cout << _name << " signed " << form.getName()
 			<< std::endl;
+
 	} catch (std::exception& e) {
 		std::cout << _name << " couldn't sign " << form.getName()
 			<< " because" << e.what() << std::endl;
