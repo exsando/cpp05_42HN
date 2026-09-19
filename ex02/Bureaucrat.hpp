@@ -6,7 +6,7 @@
 /*   By: asando <asando@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/04 16:47:15 by asando            #+#    #+#             */
-/*   Updated: 2026/09/13 19:44:53 by asando           ###   ########.fr       */
+/*   Updated: 2026/09/19 20:17:21 by asando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ class	Bureaucrat {
 		void				setDecGrade(void);
 
 		void				signForm(AForm& form);
+		void				executeForm(AForm const& form) const;
 
 		class GradeTooHighExcep : public std::exception {
 			public:

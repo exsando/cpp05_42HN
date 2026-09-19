@@ -6,7 +6,7 @@
 /*   By: asando <asando@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 17:49:09 by asando            #+#    #+#             */
-/*   Updated: 2026/09/17 20:24:21 by asando           ###   ########.fr       */
+/*   Updated: 2026/09/19 20:25:30 by asando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& r
 RobotomyRequestForm::~RobotomyRequestForm() {}
 
 void	RobotomyRequestForm::execute(const Bureaucrat& executor) const {
+	checkExecution(executor);
+
 	std::cout << "* Drilling noise *" << std::endl;
 	if (rand() % 2)
 		std::cout << _target
