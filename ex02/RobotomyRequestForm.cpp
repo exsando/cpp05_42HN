@@ -6,12 +6,13 @@
 /*   By: asando <asando@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 17:49:09 by asando            #+#    #+#             */
-/*   Updated: 2026/09/19 20:25:30 by asando           ###   ########.fr       */
+/*   Updated: 2026/09/20 12:25:11 by asando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 #include <iostream>
+#include <stdlib.h>
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string target)
 	: AForm("RobotomyRequestForm", 75, 45), _target(target) {}
