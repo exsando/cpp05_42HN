@@ -6,12 +6,11 @@
 /*   By: asando <asando@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 20:10:58 by asando            #+#    #+#             */
-/*   Updated: 2026/09/17 19:49:34 by asando           ###   ########.fr       */
+/*   Updated: 2026/09/27 21:14:30 by asando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
-#include <iostream>
 
 Form::Form(const std::string& name, int gradeToSign, int gradeToExecute)
 	: _name(name), _signed(false), _gradeToSign(gradeToSign),
@@ -55,6 +54,7 @@ void	Form::beSigned(Bureaucrat& signer) {
 	if (signer.getGrade() > this->_gradeToSign) {
 		throw GradeTooLowExecp();
 	}
+	_signed = true;
 	return ;
 }
 
