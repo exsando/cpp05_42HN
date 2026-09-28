@@ -6,7 +6,7 @@
 /*   By: asando <asando@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/20 07:48:14 by asando            #+#    #+#             */
-/*   Updated: 2026/09/20 12:13:43 by asando           ###   ########.fr       */
+/*   Updated: 2026/09/28 13:56:12 by asando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,18 @@ Intern& Intern::operator=(const Intern& rhs) {
 
 Intern::~Intern(){}
 
+static AForm* createShrubberyForm(std::string target) {
+	return (new ShrubberyCreationForm(target));
+}
+
+static AForm* createRobotomyForm(std::string target) {
+	return (new RobotomyRequestForm(target));
+}
+
+static AForm* createPresidentialForm(std::string target) {
+	return (new PresidentialPardonForm(target));
+}
+
 AForm* Intern::makeForm(std::string nameForm, std::string target) {
 	int	i;
 
@@ -41,19 +53,17 @@ AForm* Intern::makeForm(std::string nameForm, std::string target) {
 			break ;
 	}
 
-	switch (i) {
-		case 0:
-			std::cout << "Intern creates " << nameForm << std::endl;
-			return new ShrubberyCreationForm(target);
-		case 1:
-			std::cout << "Intern creates " << nameForm << std::endl;
-			return new RobotomyRequestForm(target);
-		case 2:
-			std::cout << "Intern creates " << nameForm << std::endl;
-			return new PresidentialPardonForm(target);
-		default:
-			std::cout << "Intern couldn't create " << nameForm
-				<< ", because it is not in the list" << std::endl;
-			return NULL;
+	if (i >= 3) {
+		std::cout << "Form name not in the list!" << std::endl;
+		return NULL;
 	}
+
+	AForm* (*funcs[3])(std::string) = {
+		createShrubberyForm,
+		createRobotomyForm,
+		createPresidentialForm
+	};
+	std::cout << "Intern creates " << arrFormName[i] << " Form" << std::endl;
+
+	return (funcs[i](target));
 }

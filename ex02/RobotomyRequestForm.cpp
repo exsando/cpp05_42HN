@@ -6,7 +6,7 @@
 /*   By: asando <asando@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 17:49:09 by asando            #+#    #+#             */
-/*   Updated: 2026/09/20 12:25:11 by asando           ###   ########.fr       */
+/*   Updated: 2026/09/28 13:04:53 by asando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,5 @@ void	RobotomyRequestForm::execute(const Bureaucrat& executor) const {
 		std::cout << _target
 			<< " has been Robotomized successfully 50% of the time" << std::endl;
 	else
-		std::cout << "Robotomy failed on" << _target << std::endl;
+		std::cout << "Robotomy failed on " << _target << std::endl;
 }
